@@ -63,30 +63,29 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Scaffold(
         body: Column(
           children: [
-            Row(
-              children: [
-                for (int i =0; i <= Random().nextInt(5); i++)
-                  Expanded(
-                      child: Card(
-                        color: Colors.primaries[Random().nextInt(Colors.primaries.length)]
-                        ,
-
-                    child: SizedBox(
-                      height: 100,
-                      child: Center(
-                        child: Text("Linha 1 Coluna 1"),
+            for (int i=0; i <= Random().nextInt(2) + 4; i++)
+              Row(
+                children: [
+                  for (int j=0; j <= Random().nextInt(5); j++)
+                    Expanded(
+                        child: Card(
+                          color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+                      child: SizedBox(
+                        height: 100,
+                        child: Center(
+                          child: Text("Linha " + (i + 1).toString() + " Coluna "+ (j + 1).toString()),
+                        ),
                       ),
-                    ),
-                  ))
-              ],
-            )
+                    ))
+                ],
+              )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.sync),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
